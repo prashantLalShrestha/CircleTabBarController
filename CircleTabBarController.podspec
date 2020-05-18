@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
   spec.summary = "CircleTabBarController is just a simple CoreFoundationKit utility Module"
 
   spec.description = <<-DESC
-  This module contains the utility class to identify the device type
+  This module contains the tab bar controller with a circular button at center
                    DESC
 
   spec.homepage = "https://github.com/prashantLalShrestha/CircleTabBarController"
