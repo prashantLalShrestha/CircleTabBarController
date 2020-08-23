@@ -130,9 +130,19 @@ open class CircleTabBarController: UITabBarController {
     
     private var shouldInit: Bool = true
     
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.tabBar.isHidden = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.commonInit()
+        self.tabBar.isHidden = false
     }
     
     open override func viewDidLayoutSubviews() {
