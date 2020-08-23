@@ -194,15 +194,8 @@ fileprivate extension CircleTabBarController {
     
     func updateFrames() {
         if canAddCenterCircleView.bool == true {
-            self.circleView.alpha = 0.0
             self.updateTabBarFrame()
             self.updateCircleViewFrame()
-            
-            self.circleView.transform = CGAffineTransform(scaleX: 0, y: 0)
-            UIView.animate(withDuration: 0.32, animations: {
-                self.circleView.alpha = 1.0
-                self.circleView.transform = CGAffineTransform.identity
-            })
         }
     }
     
