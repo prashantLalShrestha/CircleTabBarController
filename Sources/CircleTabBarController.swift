@@ -132,6 +132,7 @@ open class CircleTabBarController: UITabBarController {
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.tabBar.isHidden = true
     }
     
     required public init?(coder: NSCoder) {
@@ -141,11 +142,14 @@ open class CircleTabBarController: UITabBarController {
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.commonInit()
+        self.tabBar.isHidden = false
         UIView.animate(withDuration: 0.15, animations: {
-            self.tabBar.transform = CGAffineTransform(scaleX: 1.0, y: 0.0)
+            self.tabBar.transform = CGAffineTransform(translationX: 0, y: CircleTabBarBaseDimension.tabBarHeight)
+            self.circleImageView.transform = CGAffineTransform(translationX: 0, y: CircleTabBarBaseDimension.tabBarHeight + CircleTabBarBaseDimension.circleViewHalfSize.height)
         }, completion: { finish in
             UIView.animate(withDuration: 0.15, animations: {
                 self.tabBar.transform = CGAffineTransform.identity
+                self.circleImageView.transform = CGAffineTransform.identity
             })
         })
     }
