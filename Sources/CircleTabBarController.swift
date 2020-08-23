@@ -143,11 +143,11 @@ open class CircleTabBarController: UITabBarController {
         super.viewDidAppear(animated)
         self.commonInit()
         self.tabBar.isHidden = false
-        UIView.animate(withDuration: 0.15, animations: {
-            self.tabBar.transform = CGAffineTransform(translationX: 0, y: -CircleTabBarBaseDimension.tabBarHeight)
-            self.circleImageView.transform = CGAffineTransform(translationX: 0, y: -CircleTabBarBaseDimension.tabBarHeight - CircleTabBarBaseDimension.circleViewHalfSize.height)
+        UIView.animate(withDuration: 0.5, animations: {
+            self.tabBar.transform = CGAffineTransform(scaleX: 1.0, y: 0)
+            self.circleImageView.transform = CGAffineTransform(scaleX: 0, y: 0)
         }, completion: { finish in
-            UIView.animate(withDuration: 0.15, animations: {
+            UIView.animate(withDuration: 0.5, animations: {
                 self.tabBar.transform = CGAffineTransform.identity
                 self.circleImageView.transform = CGAffineTransform.identity
             })
