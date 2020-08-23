@@ -180,7 +180,7 @@ fileprivate extension CircleTabBarController {
             }
 
             if circleTabBarItemImage == nil {
-                circleTabBarItemImage = self.tabBar.items?[centerIndex].image?.scaled(to: CircleTabBarBaseDimension.circleViewHalfSize)?.withRenderingMode(.alwaysTemplate)
+                circleTabBarItemImage = self.tabBar.items?[centerIndex].image?.scaled(to: CircleTabBarBaseDimension.circleViewHalfSize)
                 self.tabBar.items?[centerIndex].image = UIImage()
             } else {
                 circleImageView.image = circleTabBarItemImage
