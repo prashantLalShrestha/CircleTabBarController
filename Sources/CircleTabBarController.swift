@@ -145,7 +145,7 @@ open class CircleTabBarController: UITabBarController {
             self.circleView.transform = CGAffineTransform(scaleX: 0, y: 0)
         }, completion: { finish in
             UIView.animate(withDuration: 0.16, animations: {
-                self.circleImageView.transform = CGAffineTransform.identity
+                self.circleView.transform = CGAffineTransform.identity
             })
         })
     }
