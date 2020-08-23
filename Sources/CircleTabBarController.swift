@@ -199,7 +199,7 @@ fileprivate extension CircleTabBarController {
             self.updateCircleViewFrame()
             
             self.circleView.transform = CGAffineTransform(scaleX: 0, y: 0)
-            UIView.animate(withDuration: 0.16, animations: {
+            UIView.animate(withDuration: 0.32, animations: {
                 self.circleView.alpha = 1.0
                 self.circleView.transform = CGAffineTransform.identity
             })
