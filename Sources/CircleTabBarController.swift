@@ -130,14 +130,6 @@ open class CircleTabBarController: UITabBarController {
     
     private var shouldInit: Bool = true
     
-    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.commonInit()
@@ -170,8 +162,6 @@ fileprivate extension CircleTabBarController {
             defer {
                 shouldInit = false
             }
-
-            self.circleView.alpha = 0.0
             
             self.tabBarConfig()
             
@@ -199,19 +189,20 @@ fileprivate extension CircleTabBarController {
             if circleTabBarItemImageForSelected == nil {
                 circleTabBarItemImageForSelected = circleTabBarItemImage
             }
+        }
+    }
+    
+    func updateFrames() {
+        if canAddCenterCircleView.bool == true {
+            self.circleView.alpha = 0.0
+            self.updateTabBarFrame()
+            self.updateCircleViewFrame()
             
             self.circleView.transform = CGAffineTransform(scaleX: 0, y: 0)
             UIView.animate(withDuration: 0.16, animations: {
                 self.circleView.alpha = 1.0
                 self.circleView.transform = CGAffineTransform.identity
             })
-        }
-    }
-    
-    func updateFrames() {
-        if canAddCenterCircleView.bool == true {
-            self.updateTabBarFrame()
-            self.updateCircleViewFrame()
         }
     }
     
