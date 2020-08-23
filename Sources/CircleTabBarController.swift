@@ -140,11 +140,13 @@ open class CircleTabBarController: UITabBarController {
     
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.circleView.alpha = 0.0
         self.commonInit()
-        UIView.animate(withDuration: 0.16, animations: {
+        UIView.animate(withDuration: 0.08, animations: {
+            self.circleView.alpha = 1.0
             self.circleView.transform = CGAffineTransform(scaleX: 0, y: 0)
         }, completion: { finish in
-            UIView.animate(withDuration: 0.16, animations: {
+            UIView.animate(withDuration: 0.08, animations: {
                 self.circleView.transform = CGAffineTransform.identity
             })
         })
