@@ -143,6 +143,9 @@ open class CircleTabBarController: UITabBarController {
         super.viewDidAppear(animated)
         self.commonInit()
         self.tabBar.isHidden = false
+        UIView.animate(withDuration: 0.3) {
+            self.tabBar.layoutIfNeeded()
+        }
     }
     
     open override func viewDidLayoutSubviews() {
