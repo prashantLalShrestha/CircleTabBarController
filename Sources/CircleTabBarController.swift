@@ -135,7 +135,7 @@ open class CircleTabBarController: UITabBarController {
         self.tabBar.isHidden = true
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
