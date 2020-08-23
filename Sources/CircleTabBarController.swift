@@ -140,13 +140,7 @@ open class CircleTabBarController: UITabBarController {
     
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.circleView.alpha = 0.0
         self.commonInit()
-        self.circleView.transform = CGAffineTransform(scaleX: 0, y: 0)
-        UIView.animate(withDuration: 0.08, animations: {
-            self.circleView.alpha = 1.0
-            self.circleView.transform = CGAffineTransform.identity
-        })
     }
     
     open override func viewDidLayoutSubviews() {
@@ -176,6 +170,8 @@ fileprivate extension CircleTabBarController {
             defer {
                 shouldInit = false
             }
+
+            self.circleView.alpha = 0.0
             
             self.tabBarConfig()
             
@@ -203,6 +199,12 @@ fileprivate extension CircleTabBarController {
             if circleTabBarItemImageForSelected == nil {
                 circleTabBarItemImageForSelected = circleTabBarItemImage
             }
+            
+            self.circleView.transform = CGAffineTransform(scaleX: 0, y: 0)
+            UIView.animate(withDuration: 0.16, animations: {
+                self.circleView.alpha = 1.0
+                self.circleView.transform = CGAffineTransform.identity
+            })
         }
     }
     
