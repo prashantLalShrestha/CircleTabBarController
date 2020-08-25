@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "CircleTabBarController"
-  spec.version = "1.0.2"
+  spec.version = "1.1.0"
   spec.summary = "CircleTabBarController is just a simple CoreFoundationKit utility Module"
 
   spec.description = <<-DESC

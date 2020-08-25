@@ -25,6 +25,8 @@ fileprivate struct CircleTabBarBaseDimension {
 
 open class CircleTabBarController: UITabBarController {
     
+    public typealias CircleButtonActionCallBack = (_ completion: @escaping () -> Void) -> Void
+    
     public enum CircleViewControllerTransitionType {
         case `default`
         case modal
@@ -72,6 +74,8 @@ open class CircleTabBarController: UITabBarController {
     public var circleTabBarItemImageForSelected: UIImage?
     
     public var circleViewControllerTransitionType: CircleViewControllerTransitionType = .default
+    
+    public var circleButtonCustomAction: CircleButtonActionCallBack?
     
     private lazy var circleView: UIView = {
         let view = UIView()
@@ -293,6 +297,16 @@ fileprivate extension CircleTabBarController {
 
 fileprivate extension CircleTabBarController {
     @objc func circleButtonTap() {
+        if let circleButtonCustomAction = circleButtonCustomAction {
+            circleButtonCustomAction {
+                self.circleButtonTransition()
+            }
+        } else {
+            circleButtonTransition()
+        }
+    }
+    
+    func circleButtonTransition() {
         guard let centerIndex = canAddCenterCircleView.centerIndex, let centerVC = centerViewController else {
             return
         }
