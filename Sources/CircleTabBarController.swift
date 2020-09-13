@@ -315,6 +315,7 @@ fileprivate extension CircleTabBarController {
             let temporaryVC = UIViewController()
             temporaryVC.title = circleTabBarItemTitle
             viewControllers?[centerIndex] = temporaryVC
+            let centerVC = centerVC.copyViewController()
             centerVC.modalPresentationStyle = .fullScreen
             self.present(centerVC, animated: true, completion: nil)
         default:
@@ -341,5 +342,11 @@ fileprivate extension UIImage {
         let newImage: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage
+    }
+}
+
+fileprivate extension UIViewController {
+    func copyViewController<T: UIViewController>() -> T {
+        return NSKeyedUnarchiver.unarchiveObject(with: NSKeyedArchiver.archivedData(withRootObject: self)) as! T
     }
 }
